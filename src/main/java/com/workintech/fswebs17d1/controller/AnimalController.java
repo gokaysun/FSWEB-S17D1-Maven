@@ -39,10 +39,10 @@ public Animal getAnimalById(@PathVariable int id){
 }
 
 @PostMapping("/animal")
-public Animal addAnimal(@RequestParam int id, @RequestParam String name){
-    Animal animal = new Animal(id,name);
-    animals.put(id,animal);
-    return animal;
+public Animal addAnimal(@RequestBody Animal newAnimal){
+    animals.put(newAnimal.getId(), newAnimal);
+    return newAnimal;
+
 }
 
 @PutMapping("/animal/{id}")
